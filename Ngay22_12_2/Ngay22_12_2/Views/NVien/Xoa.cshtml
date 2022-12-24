@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Xoa";
+}
+
+<h2>XÓA NHÂN VIÊN</h2>
+<div>Mã nhân viên:@Model.Manv</div>
+<div>Họ tên:@Model.Hoten</div>
+<div>Phòng:@Model.Maphong</div>
+<div>Lương:@Model.Luong</div>
+
+@using (Html.BeginForm())
+{
+<p>
+    <input type="submit" value="Xóa" />|
+    @Html.ActionLink("Về danh sách", "Index");
+</p>
+}
+

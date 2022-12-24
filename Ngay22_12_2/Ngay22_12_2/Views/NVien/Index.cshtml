@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>QUẢN LÝ NHÂN VIÊN</h2>
+
+@using(Html.BeginForm())
+{
+<p>
+    Nhập vào lương từ
+    @Html.TextBox("min")
+    Đến
+    @Html.TextBox("max")
+
+    <input type= "submit" value= "Tìm" />
+</p>
+} 
+
+<table>
+    <tr>
+        <th>Mã NV</th>
+        <th>Họ tên</th>
+        <th>Phòng</th>
+        <th>Lương</th>
+        <th></th>
+    </tr>
+    @foreach(var item in Model)
+            {
+<tr>
+    <td>@item.Manv</td>
+    <td>@item.Hoten</td>
+    <td>@item.Maphong</td>
+    <td>@item.Luong</td>
+    <td>
+        @Html.ActionLink("Sửa","Sua",new { id=item.Manv.Trim()})|
+        @Html.ActionLink("Chi tiết","ChiTiet",new {id=item.Manv.Trim()})|
+        @Html.ActionLink("Xóa","Xoa",new {id=item.Manv.Trim()})
+    </td>
+</tr>
+            }
+</table>
+@Html.ActionLink("Thêm mới","Them","NVien")
+
